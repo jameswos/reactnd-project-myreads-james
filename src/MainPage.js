@@ -23,6 +23,7 @@ class MainPage extends Component {
                         <Books
                           book={book}
                           changeShelf={this.props.changeShelf}
+                          onShelf='currentlyReading'
                         />
                       </li>
                       )
@@ -42,6 +43,7 @@ class MainPage extends Component {
                         <Books
                           book={book}
                           changeShelf={this.props.changeShelf}
+                          onShelf='wantToRead'
                         />
                       </li>
                       )
@@ -61,6 +63,7 @@ class MainPage extends Component {
                         <Books
                           book={book}
                           changeShelf={this.props.changeShelf}
+                          onShelf='read'
                         />
                       </li>
                       )
