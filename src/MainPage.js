@@ -4,6 +4,9 @@ import Books from './Books';
 
 class MainPage extends Component {
   render() {
+
+    const { bookList, changeShelf } = this.props
+
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -16,13 +19,13 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
-                    this.props.bookList
+                    bookList
                       .filter ((book) => book.shelf === 'currentlyReading')
                       .map((book) =>
                       <li key={book.id}>
                         <Books
                           book={book}
-                          changeShelf={this.props.changeShelf}
+                          changeShelf={changeShelf}
                           onShelf='currentlyReading'
                         />
                       </li>
@@ -36,13 +39,13 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
-                    this.props.bookList
+                    bookList
                       .filter ((book) => book.shelf === 'wantToRead')
                       .map((book) =>
                       <li key={book.id}>
                         <Books
                           book={book}
-                          changeShelf={this.props.changeShelf}
+                          changeShelf={changeShelf}
                           onShelf='wantToRead'
                         />
                       </li>
@@ -56,13 +59,13 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
-                    this.props.bookList
+                    bookList
                       .filter ((book) => book.shelf === 'read')
                       .map((book) =>
                       <li key={book.id}>
                         <Books
                           book={book}
-                          changeShelf={this.props.changeShelf}
+                          changeShelf={changeShelf}
                           onShelf='read'
                         />
                       </li>

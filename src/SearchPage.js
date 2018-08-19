@@ -31,7 +31,9 @@ class SearchPage extends Component {
   }
 
   render() {
+
     const { searchedBooks } = this.state
+    
     return (
       <div className="search-books">
         <div className="search-books-bar">

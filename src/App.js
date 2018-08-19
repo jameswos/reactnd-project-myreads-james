@@ -24,11 +24,14 @@ class BooksApp extends React.Component {
   }
 
   render() {
+
+    const { bookList } = this.state
+
     return (
       <div className="app">
         <Route exact path="/" render={() => (
           <MainPage
-            bookList={this.state.bookList}
+            bookList={bookList}
             changeShelf={this.changeShelf}
           />
         )} />
@@ -36,7 +39,7 @@ class BooksApp extends React.Component {
         <Route path="/search" render={() => (
           <SearchPage
             changeShelf={this.changeShelf}
-            bookList={this.state.bookList}
+            bookList={bookList}
           />
         )} />
       </div>
