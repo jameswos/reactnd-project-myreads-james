@@ -11,7 +11,7 @@ class Books extends Component {
               width: 128,
               height: 193,
               backgroundImage:
-                ''
+                'url(${book.imageLinks.thumbnail})'
             }}
           />
           <div className="book-shelf-changer">
@@ -28,10 +28,8 @@ class Books extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">
-
-        </div>
-        <div className="book-authors"></div>
+        <div className="book-title">{book.title}</div>
+        <div className="book-authors">{book.authors}</div>
       </div>
     );
   }

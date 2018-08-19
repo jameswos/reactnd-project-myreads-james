@@ -14,9 +14,15 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    <Books />
-                  </li>
+                  {
+                    this.props.bookList
+                      .filter ((book) => book.shelf === 'currentlyReading')
+                      .map((book) =>
+                      <li key={book.id}>
+                        <Books />
+                      </li>
+                      )
+                  }
                 </ol>
               </div>
             </div>
@@ -24,9 +30,15 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    <Books />
-                  </li>
+                  {
+                    this.props.bookList
+                      .filter ((book) => book.shelf === 'wantToRead')
+                      .map((book) =>
+                      <li key={book.id}>
+                        <Books />
+                      </li>
+                      )
+                  }
                 </ol>
               </div>
             </div>
@@ -34,9 +46,15 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    <Books />
-                  </li>
+                  {
+                    this.props.bookList
+                      .filter ((book) => book.shelf === 'read')
+                      .map((book) =>
+                      <li key={book.id}>
+                        <Books />
+                      </li>
+                      )
+                  }
                 </ol>
               </div>
             </div>
