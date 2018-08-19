@@ -11,11 +11,17 @@ class Books extends Component {
               width: 128,
               height: 193,
               backgroundImage:
-                'url(${book.imageLinks.thumbnail})'
+                `url("${this.props.book.imageLinks.thumbnail})`
             }}
           />
           <div className="book-shelf-changer">
-            <select>
+            <select
+              // Help with onChange() from https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
+              onChange={(e) => this.props.changeShelf(
+                this.props.book, e.target.value
+              )}
+              value={this.props.book.shelf}
+            >
               <option value="move" disabled>
                 Move to...
               </option>
@@ -28,8 +34,8 @@ class Books extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.authors}</div>
+        <div className="book-title">{this.props.book.title}</div>
+        <div className="book-authors">{this.props.book.authors}</div>
       </div>
     );
   }
