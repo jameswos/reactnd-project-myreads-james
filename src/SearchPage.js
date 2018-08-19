@@ -31,6 +31,7 @@ class SearchPage extends Component {
   }
 
   render() {
+    const { searchedBooks } = this.state
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -52,8 +53,15 @@ class SearchPage extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {
-              this.state.searchedBooks.map((searchedBook) => {
+              searchedBooks.map(searchedBook => {
                 let shelf = 'none';
+
+                this.props.bookList.map(book => (
+                  book.id === searchedBook.id ?
+                  shelf = book.shelf :
+                  ''
+                ));
+
                 return (
                   <li key={searchedBook.id}>
                     <Books
@@ -62,7 +70,7 @@ class SearchPage extends Component {
                       onShelf={shelf}
                     />
                   </li>
-                )
+                );
               })
             }
           </ol>
